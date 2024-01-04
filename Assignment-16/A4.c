@@ -6,30 +6,37 @@ void printMatrix(int a[10][10], int row, int col);
 
 int main(){
 
-    int i,j,a[10][10], b[10][10], c[10][10], row, col;
+    int i,j,a[10][10], b[10][10], c[10][10], row, col, sum=0;
 
 
     printf("Enter matrix rows and columns :\n");
     scanf("%d%d",&row,&col);
 
-    printf("\nEnter array values : \n");
-    inputArray(a,row,col);
+    if(row != col){
+        printf("Rows and columns must be same to find the sum of right diagonal of matrix");
+    }else{
 
-    printf("\nEntered Matrix : \n");
+        printf("\nEnter array values : \n");
+        inputArray(a,row,col);
 
-    printMatrix(a,row,col);
+        printf("\nEntered Matrix : \n");
 
-    for(i=0; i<row; i++){
-        for(j=0; j<col; j++){
+        printMatrix(a,row,col);
 
-            c[j][i] = a[i][j];
 
+        for(i=0; i<row; i++){
+            for(j=0;j<col;j++)
+                if(i==j){
+                    sum += a[i][j];
+                }
         }
+
+
+        printf("Sum of the right diagonal of the given matrix is : %d",sum);
+
     }
 
-    printf("\nTranspose matrix is : \n");
 
-    printMatrix(c,col,row);
 
 
     return 0;

@@ -1,3 +1,5 @@
+
+
 #include<stdio.h>
 void inputArray(int a[10][10], int, int);
 
@@ -6,11 +8,12 @@ void printMatrix(int a[10][10], int row, int col);
 
 int main(){
 
-    int i,j,a[10][10], b[10][10], c[10][10], row, col;
+    int i,j,a[10][10], b[10][10], c[10][10], row, col, sum=0;
 
 
     printf("Enter matrix rows and columns :\n");
     scanf("%d%d",&row,&col);
+
 
     printf("\nEnter array values : \n");
     inputArray(a,row,col);
@@ -19,17 +22,6 @@ int main(){
 
     printMatrix(a,row,col);
 
-    for(i=0; i<row; i++){
-        for(j=0; j<col; j++){
-
-            c[j][i] = a[i][j];
-
-        }
-    }
-
-    printf("\nTranspose matrix is : \n");
-
-    printMatrix(c,col,row);
 
 
     return 0;

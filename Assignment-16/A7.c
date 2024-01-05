@@ -8,12 +8,17 @@ void printMatrix(int a[10][10], int row, int col);
 
 int main(){
 
-    int i,j,a[10][10], b[10][10], row, col, sum=0,rowSum[10], colSum[10];
+    int i,j,a[10][10], b[10][10], row, col;
 
 
 
     printf("Enter matrix rows and columns :\n");
     scanf("%d%d",&row,&col);
+
+    if(row!=col){
+        printf("Rows and column must be same");
+        return 0;
+    }
 
 
     printf("\nEnter array values : \n");
@@ -23,32 +28,17 @@ int main(){
 
     printMatrix(a,row,col);
 
+
+    printf("\nLower triangle of given matrix\n");
+
     for(i=0; i<row; i++){
-        sum=0;
-        for(j=0; j<col; j++){
 
-            sum = sum + a[i][j];
+        for(j=0; j<=i; j++){
+
+            printf("%d ",a[i][j]);
+
         }
-        rowSum[i] = sum;
-    }
-
-
-
-    for(j=0; j<col; j++){
-        sum=0;
-        for(i=0; i<row; i++){
-            sum = sum + a[i][j];
-        }
-        colSum[j]=sum;
-    }
-
-
-
-    for(i=0;i<row;i++){
-        printf("\nRow %d : %d",i+1,rowSum[i]);
-    }
-    for(i=0;i<col;i++){
-        printf("\nCol %d : %d",i+1,colSum[i]);
+        printf("\n");
     }
 
 

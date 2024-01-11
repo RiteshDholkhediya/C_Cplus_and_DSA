@@ -1,3 +1,4 @@
+// Write a function to compare two strings
 #include<stdio.h>
 #include<string.h>
 
@@ -27,15 +28,14 @@ int cmpString(char str1[], char str2[]){
 
     if(l1 < l2){
         for(int i=0; str1[i]; i++){
+
             if(str1[i] < str2[i]){
                 order = -1;
-                printf("\n%c",str1[i]);
                 break;
             }
 
             else if(str1[i] > str2[i]){
                 order = 1;
-                printf("\n%c",str1[i]);
                 break;
             }
 
@@ -43,15 +43,14 @@ int cmpString(char str1[], char str2[]){
     }else{
 
         for(int i=0; str2[i]; i++){
+
             if(str2[i] < str1[i]){
                 order = -1;
-                printf("\n%c",str2[i]);
                 break;
             }
 
             else if(str2[i]> str1[i]){
                 order = 1;
-                printf("\n%c",str2[i]);
                 break;
 
             }

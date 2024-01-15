@@ -8,9 +8,7 @@ void printMatrix(int a[10][10], int row, int col);
 
 int main(){
 
-    int i,j,a[10][10], b[10][10], row, col, rowOnesCount[10], maxCount=0, rowNo=0;
-
-
+    int i,j,a[10][10], b[10][10], row, col, max=0, index=0, sum=0;
 
     printf("Enter matrix rows and columns :\n");
     scanf("%d%d",&row,&col);
@@ -24,26 +22,25 @@ int main(){
 
 
 
-
     for(i=0; i<row; i++){
-        rowOnesCount[i] = 0;
+        sum=0;
         for(j=0; j<col; j++){
 
-            if(a[i][j]==1)
-                rowOnesCount[i]++;
+            if(a[i][j]==1){
+                sum++;
+            }
 
         }
+
+        if(max < sum){
+            max=sum;
+            index = i;
+        }
+
+
     }
 
-
-    for(i=0; i<row-1; i++){
-
-        if(rowOnesCount[i] < rowOnesCount[i+1])
-            rowNo = i+1;
-    }
-
-
-    printf("\nMaximum no.s of 1's is in %d row",rowNo+1);
+    printf("\nMaximum no.s of 1's is in %d row",index+1);
 
 
     return 0;

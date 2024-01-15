@@ -14,7 +14,7 @@ int main(){
     scanf("%d%d",&row,&col);
 
     if(row != col){
-        printf("Rows and columns must be same to find the sum of right diagonal of matrix");
+        printf("Rows and columns must be same to find the sum of left diagonal of matrix");
     }else{
 
         printf("\nEnter array values : \n");

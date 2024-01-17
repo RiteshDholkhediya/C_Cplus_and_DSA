@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 
+// Write a program to search a string in the list of strings
+
 int findString(char [][50], char str2[], int);
 
 int main(){
@@ -39,12 +41,11 @@ int findString(char str1[][50], char str2[], int totalString){
     int i,j,flag=0, index=-1;
 
     strlwr(str2);
-    printf("\nEntered String : %s", str2);
 
     for(i=0; i<totalString; i++){
         strlwr(str1[i]);
 
-        printf("\n%s",str1[i]);
+       // printf("\n%s",str1[i]);
         flag=0;
         for(j=0; str2[j]; j++){
 

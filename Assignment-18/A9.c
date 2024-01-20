@@ -1,8 +1,10 @@
 // Write a function to count words in a given string
 #include<stdio.h>
-int countWord(char str1[]);
+#include<string.h>
+
 int length(char []);
-void reverseWords(char str[], int words);
+void reverseWords(char str[]);
+void reverseString(char str[]);
 
 
 int main(){
@@ -12,97 +14,63 @@ int main(){
     printf("Enter a string : ");
     fgets(str,400,stdin);
 
+    reverseWords(str);
 
-    count = countWord(str);
-
-    reverseWords(str, count);
-
+    printf("\n%s",str);
 
     return 0;
 }
 
 
-int countWord(char str1[]){
 
-    char str[400];
+void reverseString(char str[]){
 
-    strcpy(str,str1);
-    int countWord=1,spaces=0,i,l;
+    int i=0,j=length(str)-1;
+    char temp;
 
-    //for(l=0; str[l]; l++);
+    while(i<=j){
 
-    l=length(str);
-
-    for(i=0; str[i]; i++){
-        if(str[i]== ' ')
-            str[i] = '\n';
-        else
-            break;
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        i++;
+        j--;
     }
-
-    for(i=l-1; i>=0; i--){
-        if(str[i]== ' '){
-            str[i]='\n';
-        }
-        else
-            break;
-    }
-
-    for(i=0; str[i]; i++){
-
-        if(str[i]==' '){
-            spaces++;
-        }else{
-
-            if(spaces > 0){
-                countWord++;
-                spaces=0;
-            }
-        }
-
-    }
-
-    return countWord;
 
 }
 
-void reverseWords(char str[], int words){
+void reverseWords(char str[]){
 
-    char str2[500], arr[words][400];
-    int i,j,k=0;
+    char temp[400];
+    int i=0,j=0,k=0, len=length(str);
 
-    for(i=0; i<words; i++){
+    while(i<len){
+
+        strcpy(temp,"");
         k=0;
-        for(j=0; str[j]; j++){
 
-            if(str[j] == ' '){
-                continue;
-            }
-            else{
-                if(str[j]==' '){
+       while(str[i] != ' '){
 
-                    arr[words][k] = ' ';
-                    arr[words][k+1] = '\0';
-                    break;
+         temp[k++] = str[i];
+         i++;
+       }
 
-                }
-                arr[words][k++] = str[j];
+       temp[k] = '\0';
+       reverseString(temp);
+       k=0;
 
-            }
+       while(temp[k]){
 
+         str[j] = temp[k++];
+         j++;
+       }
 
-        }
+        i++;
+        j++;
+
     }
 
-
-    for(i=0; i<words; i++){
-
-        for(j=0; arr[words][j]; j++){
-
-            printf("%c",arr[words][j]);
-        }
-        printf("\n");
-    }
+    reverseString(str);
 
 
 }
@@ -121,3 +89,5 @@ int length(char str[]){
     return l;
 
 }
+
+// note: its logic is discussed in '17Aug doubt clearing class' at timestamp 1:00:00

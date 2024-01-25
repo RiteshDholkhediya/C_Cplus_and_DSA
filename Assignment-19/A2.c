@@ -2,6 +2,7 @@
 #include<string.h>
 
 void sort(char c[10][50], int size);
+void sort2 (char s[10][50],int cityCount, int maxSize);
 
 
 int main(){
@@ -18,7 +19,7 @@ int main(){
         cities[i][strlen(cities[i])-1] = '\0';
     }
 
-    sort(cities,10);
+    sort2(cities,10,50);
 
     for(i=0; i<10; i++){
 
@@ -65,3 +66,25 @@ void sort(char c[10][50], int size){
 
 }
 
+void sort2 (char s[10][50],int cityCount, int maxSize){
+
+    int i,j;
+    char temp[maxSize];
+
+    for(i=0; i<cityCount-1; i++){
+
+        for(j=0; j<cityCount-1-i; j++){
+
+            if(strcmp(s[j],s[j+1]) > 0){
+                strcpy(temp, s[j]);
+                strcpy(s[j],s[j+1]);
+                strcpy(s[j+1], temp);
+            }
+
+        }
+
+    }
+
+
+
+}

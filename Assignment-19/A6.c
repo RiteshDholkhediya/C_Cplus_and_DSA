@@ -71,7 +71,10 @@ void inputTwoDString(char a[][50], int size){
     for(i=0; i<size; i++){
 
         fgets(a[i],50,stdin);
-        a[i][strlen(a[i])-1] = '\0';
+
+        if(a[i][strlen(a[i])-1]=='\n')
+
+            a[i][strlen(a[i])-1] = '\0';
 
     }
 
